@@ -43,6 +43,7 @@ var Telemetry = (function() {
         this.telemetryEnvelop = {
             "eid": "",
             "ets": "",
+            "logTs": "",
             "ver": "",
             "mid": '',
             "actor": {},
@@ -408,6 +409,7 @@ var Telemetry = (function() {
         telemetryInstance.telemetryEnvelop.eid = eventId;
         // timeDiff (in sec) is diff of server date and local date
         telemetryInstance.telemetryEnvelop.ets = (new Date()).getTime() + ((Telemetry.config.timeDiff*1000) || 0);
+        telemetryInstance.telemetryEnvelop.logTs = new Date();
         telemetryInstance.telemetryEnvelop.ver = Telemetry._version;
         telemetryInstance.telemetryEnvelop.mid = '';
         telemetryInstance.telemetryEnvelop.actor = Object.assign({}, { "id": Telemetry.config.uid || 'anonymous', "type": 'User' }, instance.getUpdatedValue('actor'));

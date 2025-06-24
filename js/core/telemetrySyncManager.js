@@ -47,6 +47,7 @@ var TelemetrySyncManager = {
                     "msgid": CryptoJS.MD5(JSON.stringify(telemetryEvents)).toString(),
                 },
                 "ets": (new Date()).getTime() + ((Telemetry.config.timeDiff*1000) || 0),
+                "logTs" : new Date(),
                 "events": telemetryEvents
             };
         }
